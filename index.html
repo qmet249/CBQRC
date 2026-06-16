@@ -2280,7 +2280,11 @@ import * as THREE from "three";
   var mo = new MutationObserver(function () { drawText(); });
   var h1 = hero.querySelector(".hero__title");
   if (h1) mo.observe(h1, { subtree: true, childList: true, characterData: true });
-  new MutationObserver(function () { drawText(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  // Redraw on theme AND language change. applyI18n() always sets
+  // document.documentElement.lang, so this reliably repaints the headline
+  // when the KO/EN toggle runs (the .hero__title subtree observer alone was
+  // not firing the canvas redraw on every toggle).
+  new MutationObserver(function () { drawText(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "lang"] });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { drawText(); });
 
   document.addEventListener("visibilitychange", function () { running = !document.hidden; });
