@@ -177,7 +177,7 @@ window.CBQRC_DATA = {
       fields: [
         "양자 메트롤로지",
         "양자 센싱·측정",
-        "고감도 자기장 센서"
+        "양자 컴퓨팅"
       ],
       detailHeading: "연구 정보",
       details: [

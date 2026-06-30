@@ -177,7 +177,7 @@ window.CBQRC_DATA = {
       fields: [
         "Quantum metrology",
         "Quantum sensing and measurement",
-        "High-sensitivity magnetic field sensors"
+        "Quantum computing"
       ],
       detailHeading: "Research Information",
       details: [

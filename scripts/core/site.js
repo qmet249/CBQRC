@@ -683,6 +683,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <ol class="history-year-block__events" aria-label="${group.year} ${ui.historyGroupLabel}">
             ${group.items.map((item) => {
               const dateParts = getHistoryDateParts(item.date);
+              const descriptionMarkup = item.description
+                ? `<p class="history-event__description">${item.description}</p>`
+                : "";
               const linkMarkup = item.url
                 ? `
                   <a
@@ -707,6 +710,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <span>${item.category}</span>
                     </div>
                     <h3>${item.title}</h3>
+                    ${descriptionMarkup}
                     ${linkMarkup}
                   </div>
                 </li>
